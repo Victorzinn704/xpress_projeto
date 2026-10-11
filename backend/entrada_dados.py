@@ -1,11 +1,11 @@
 import csv
 import os
 
-arquivo = 'dados_vendas.csv'
+arquivo = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'dados_vendas.csv')
 
 def inicializar_arquivo():
     if not os.path.exists(arquivo):
-        with open(arquivo, mode='w', newline='') as f:
+        with open(arquivo, mode='w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['produto', 'quantidade', 'preco_compra', 'preco_venda', 'valor_bruto'])
 
@@ -17,7 +17,7 @@ def inserir_dados():
     preco_venda = float(input("Preço de Venda (unitário): "))
     valor_bruto = preco_venda * quantidade
     
-    with open(arquivo, mode='a', newline='') as f:
+    with open(arquivo, mode='a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow([produto, quantidade, preco_compra, preco_venda, valor_bruto])
     print("Dados inseridos com sucesso!\n")
