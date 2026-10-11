@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.log
+instance/
+# Novos bancos locais nao devem ser publicados. O banco historico permanece intacto.
+*.db
+*.sqlite
+*.sqlite3
